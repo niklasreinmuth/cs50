@@ -7,14 +7,14 @@ int main(void)
 {
     int height = get_height("Height: ");
     
-    for(int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
     {
-        for(int j = height-1; j > i; j--)
+        for (int j = height - 1; j > i; j--)
         {
             printf(" ");
         }
         
-        for(int k = 0; k < i+1; k++)
+        for (int k = 0; k < i + 1; k++)
         {
             printf("#");
         }
