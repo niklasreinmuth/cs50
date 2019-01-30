@@ -35,25 +35,25 @@ int calculate_coins(int amount)
     int nickel = 5;
     int penny = 1;
     
-    if(amount / quarter > 0)
+    if (amount / quarter > 0)
     {
         coins += amount / quarter;
         amount = amount % quarter;
     }
     
-    if(amount / dime > 0)
+    if (amount / dime > 0)
     {
         coins += amount / dime;
         amount = amount % dime;
     }
     
-    if(amount / nickel > 0)
+    if (amount / nickel > 0)
     {
         coins += amount / nickel;
         amount = amount % nickel;
     }
     
-    if(amount / penny > 0)
+    if (amount / penny > 0)
     {
         coins += amount / penny;
         amount = amount % penny;
