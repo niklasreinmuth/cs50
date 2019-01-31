@@ -3,13 +3,15 @@
 
 long get_credit_card(string prompt);
 int get_card_length(long card_number);
-string validate_credit_card(long card_number);
+int validate_credit_card(long card_number);
+string get_card_type(long card_number, int checksum);
 
 int main(void)
 {
     long card_number = get_credit_card("Number: ");
     int card_length = get_card_length(card_number);
-    string status = validate_credit_card(card_number);
+    int checksum = validate_credit_card(card_number);
+    string status = get_card_type(card_number, checksum);
     printf("%s\n", status);
 }
 
@@ -37,10 +39,9 @@ int get_card_length(long card_number)
     return length;
 }
 
-string validate_credit_card(long card_number)
+int validate_credit_card(long card_number)
 {
     long length = get_card_length(card_number);
-    string card_type = "INVALID";
     int checksum = 0;
     
     // isolate every other rightmost digit and add to checksum.
@@ -58,6 +59,14 @@ string validate_credit_card(long card_number)
         int digit = (card_number / j % 10) * 2;
         checksum += (digit % 10) + (digit / 10);
     }
+    
+    return checksum;
+}
+
+string get_card_type(long card_number, int checksum)
+{
+    string card_type = "INVALID";
+    int length = get_card_length(card_number);
     
     if (checksum % 10 == 0)
     {
