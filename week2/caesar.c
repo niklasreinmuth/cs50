@@ -18,11 +18,13 @@ int main(int argc, string argv[])
         
         for (int i = 0, n = strlen(argv[1]); i < n; i++)
         {
-            if (isdigit(argv[1][i]))
+            // Check if key consists only of digits
+            if (argv[1][i] < 48 || argv[1][i] > 57)
             {
                 printf("Usage: ./caesar key\n");
                 return 1;
             }
+            // Convert key to int
             else
             {
                 key = atoi(argv[1]);
