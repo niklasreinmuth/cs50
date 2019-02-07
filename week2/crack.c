@@ -33,10 +33,16 @@ int main(int argc, string argv[])
         int library_length = 53;
         char password[6] = {'\0'};
         
-        
-        // For loops start comparing a single char password since our library
+        // For loops start with comparing a single char password since our library
         // starts with '\0' -> which 'ends' a string. Thus, the last loop (our
         // first char of the password) starts counting at 1 to skip the '\0'.
+        //
+        // Essentially maps out to this:
+        // \0 \0 \0 \0  x
+        // \0 \0 \0  x  x
+        // \0 \0  x  x  x
+        // \0  x  x  x  x
+        //  x  x  x  x  x
         for (int i = 0; i < library_length; i++)
         {
             for (int j = 0; j < library_length; j++)
