@@ -18,8 +18,8 @@ int main(int argc, string argv[])
         salt[1] = argv[1][1];
         
         // Store salt and chars 3 to 13 of argv[1] in argv_hashed.
-        // This is the actual hash to compare the brute-force to later.
-        // Will look something like this: 50cI2vYkF0YU2 (50 = salt).
+        // This is the actual hash to compare the brute-forced password to 
+        // later on. Will look something like this: 50cI2vYkF0YU2 (50 = salt).
         char argv_hashed[14];
         argv_hashed[0] = salt[0];
         argv_hashed[1] = salt[1];
@@ -28,12 +28,12 @@ int main(int argc, string argv[])
             argv_hashed[i] = argv[1][i];
         }
         
-        // Optimized by letter frequency
+        // Optimized by letter frequency in the english alphabet
         string library = "\0EeTtAaOoIiNnSsRrHhLlDdCcUuMmFfPpGgWwYyBbVvKkXxJjQqZz";
         int library_length = 53;
         char password[6] = {'\0'};
         
-        // For loops start with comparing a single char password since our library
+        // Loops start with comparing a single char password since our library
         // starts with '\0' -> which 'ends' a string. Thus, the last loop (our
         // first char of the password) starts counting at 1 to skip the '\0'.
         //
@@ -59,8 +59,8 @@ int main(int argc, string argv[])
                             password[3] = library[j];
                             password[4] = library[i];
                             
-                            // crypt() the brute-forced password with the determined salt
-                            // and check if they're equal to the given argv[1] by the user.
+                            // crypt() the brute-forced password with the determined salt and
+                            // check if they're equal to the given argv[1] hash by the user.
                             if (strcmp(crypt(password, salt), argv_hashed) == 0)
                             {
                                 printf("%s\n", password);
