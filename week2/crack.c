@@ -12,22 +12,20 @@ int main(int argc, string argv[])
     }
     else
     {
-        // Store first two chars of argv[1] in salt.
-        char salt[3];
-        salt[0] = argv[1][0];
-        salt[1] = argv[1][1];
-        
         // Store salt and chars 3 to 13 of argv[1] in argv_hashed.
         // This is the actual hash to compare the brute-forced password to 
         // later on. Will look something like this: 50cI2vYkF0YU2 (50 = salt).
         char argv_hashed[14];
-        argv_hashed[0] = salt[0];
-        argv_hashed[1] = salt[1];
-        for (int i = 2, n = 13; i < n; i++)
+        for (int i = 0, n = 13; i < n; i++)
         {
             argv_hashed[i] = argv[1][i];
         }
         
+        // Also store first two chars of argv[1] in salt.
+        char salt[3];
+        salt[0] = argv_hashed[0];
+        salt[1] = argv_hashed[1];
+
         // Optimized by letter frequency in the english alphabet
         string library = "\0EeTtAaOoIiNnSsRrHhLlDdCcUuMmFfPpGgWwYyBbVvKkXxJjQqZz";
         int library_length = 53;
