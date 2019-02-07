@@ -12,14 +12,14 @@ int main(int argc, string argv[])
     }
     else
     {
-        // Store first two chars of argv[1] in salt
+        // Store first two chars of argv[1] in salt.
         char salt[3];
         salt[0] = argv[1][0];
         salt[1] = argv[1][1];
         
         // Store salt and chars 3 to 13 of argv[1] in argv_hashed.
         // This is the actual hash to compare the brute-force to later.
-        // Will look something like this: 50cI2vYkF0YU2 (50 = salt)
+        // Will look something like this: 50cI2vYkF0YU2 (50 = salt).
         char argv_hashed[14];
         argv_hashed[0] = salt[0];
         argv_hashed[1] = salt[1];
@@ -54,10 +54,10 @@ int main(int argc, string argv[])
                             password[4] = library[i];
                             
                             // crypt() the brute-forced password with the determined salt
-                            // and check if they're equal to the given argv[1] by the user
+                            // and check if they're equal to the given argv[1] by the user.
                             if (strcmp(crypt(password, salt), argv_hashed) == 0)
                             {
-                                printf(password);
+                                printf("%s\n", password);
                                 return 0;
                             }
                         }
