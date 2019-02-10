@@ -10,10 +10,10 @@ To create fixed-width integers no matter on which system we run our program.
 
 ## How many bytes is a `BYTE`, a `DWORD`, a `LONG`, and a `WORD`, respectively?
 
-`BYTE`: 1 byte
-`DWORD`: 4 byte
-`LONG`: 4 byte
-`WORD`: 2 byte
+`BYTE`: 1 byte  
+`DWORD`: 4 byte  
+`LONG`: 4 byte  
+`WORD`: 2 byte  
 
 ## What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
 
@@ -38,8 +38,8 @@ If the files in argv[1] and argv[2] could not be opened.
 
 ## Why is the third argument to `fread` always `1` in our code? (For example, see lines 40, 44, and 75.)
 
-`size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);`
-`fread()` reads _nmemb_ items of data, each _size_ bytes long, from the stream pointed to by _stream_, storing them at the location given by _ptr_.
+`size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);`  
+`fread()` reads _nmemb_ items of data, each _size_ bytes long, from the stream pointed to by _stream_, storing them at the location given by _ptr_.  
 On success, `fread()` return the number of items read or written. This number equals the number of bytes transferred only when _size_ is 1.
 
 -> We read one pixel at a time.
